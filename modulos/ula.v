@@ -1,0 +1,36 @@
+module ula(A, B, Op, shamt, result, zero);
+   input wire [31:0] A, B; // Entrada dos operandos
+   input wire [3:0] Op; // Sinal de controle para operacoes da ULA
+	input wire [4:0] shamt; // Para deslocamento
+   output wire zero; // Saída para indicar se o resultado é zero
+   output wire [31:0] result; // Saída do resultado da ULA
+
+
+	// Variavel temporaria para resultado
+	reg [31:0] ula_result;
+	assign result = ula_result;
+
+	always @(*) begin
+		case (Op)
+			4'b0000: ula_result <= A & B; //0000: AND
+			4'b0001: ula_result <= A | B; //0001: OR
+			4'b0010: ula_result <= A + B; //0010: ADD
+			4'b0011: ula_result <= A << shamt; //0011: Shift left (SLL)
+			4'b0100: ula_result <= $signed($signed(B) >>> shamt); //0100: Shift right arithmetic (SRA)
+			4'b0101: ula_result <= B >> shamt; //0101: Shift right logical (SRL)
+			4'b0110: ula_result <= A - B; //0110: SUB
+			4'b0111: ula_result <= ($signed(A) < $signed(B)) ? 32'd1 : 32'd0; //0111: SLT
+			4'b1000: ula_result <= A < B ? 32'd1 : 32'd0; //1000: SLTU
+			4'b1011: ula_result <= {B[15:0], 16'h0000}; //1011: LUI
+			4'b1100: ula_result <= ~ (A | B); //1100: NOR
+			4'b1101: ula_result <= A ^ B; //1101: XOR
+			4'b1110: ula_result <= B << A; //1110: SLLV
+			4'b1111: ula_result <= B >> A; //1111: SRLV
+			4'b1010: ula_result <= $signed($signed(B) >>> $signed(A)); //1010: Shift right arithmetic (SRAV)
+			default: ula_result <= A + B; //defaults to AND
+		endcase
+	end
+
+	assign zero = (result == 0) ? 1'b1 : 1'b0;
+	
+endmodule

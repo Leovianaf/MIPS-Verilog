@@ -1,0 +1,25 @@
+|control
+opcode[0] => Decoder0.IN5
+opcode[1] => Decoder0.IN4
+opcode[2] => Decoder0.IN3
+opcode[3] => Decoder0.IN2
+opcode[4] => Decoder0.IN1
+opcode[5] => Decoder0.IN0
+RegDst[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+RegDst[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+PCOp[0] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+PCOp[1] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+MemRead <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+MemtoReg <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+ALUOp[0] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+ALUOp[1] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+ALUOp[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+ALUOp[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+ALUOp[4] <= <GND>
+MemWrite <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+ALUSrc <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+RegWrite <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Branch <= Branch.DB_MAX_OUTPUT_PORT_TYPE
+isSigned <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
+
+

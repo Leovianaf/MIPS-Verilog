@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS-Verilog
-Tue Feb 13 20:49:30 2024
+Thu Feb 15 15:18:08 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -17,6 +17,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   9. Post-Synthesis Netlist Statistics for Top Partition
  10. Elapsed Time Per Partition
  11. Analysis & Synthesis Messages
+ 12. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -43,7 +44,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Feb 13 20:49:29 2024       ;
+; Analysis & Synthesis Status     ; Successful - Thu Feb 15 15:18:08 2024       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS-Verilog                                ;
 ; Top-level Entity Name           ; control                                     ;
@@ -261,7 +262,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Feb 13 20:49:20 2024
+    Info: Processing started: Thu Feb 15 15:17:57 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS-Verilog -c MIPS-Verilog
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -275,6 +276,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file modulos
     Info (12023): Found entity 1: jr_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/jr_ctrl.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/control.v
     Info (12023): Found entity 1: control File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/control.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/i_mem.v
+    Info (12023): Found entity 1: i_mem File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/i_mem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/sign_extend.v
+    Info (12023): Found entity 1: sign_extend File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/sign_extend.v Line: 1
 Info (12127): Elaborating entity "control" for the top level hierarchy
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "ALUOp[4]" is stuck at GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/control.v Line: 26
@@ -285,10 +290,17 @@ Info (21057): Implemented 36 device resources after synthesis - the final resour
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 16 output pins
     Info (21061): Implemented 14 logic cells
+Info (144001): Generated suppressed messages file C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/output_files/MIPS-Verilog.map.smsg
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4805 megabytes
-    Info: Processing ended: Tue Feb 13 20:49:30 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4798 megabytes
+    Info: Processing ended: Thu Feb 15 15:18:08 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:27
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/output_files/MIPS-Verilog.map.smsg.
 
 

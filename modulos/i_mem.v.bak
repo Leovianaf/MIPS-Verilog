@@ -15,6 +15,6 @@ module i_mem (address, i_out);
 
 	 // O endereço da instrução será obtido a partir dos 5 últimos bits de address, depois
 	 // será usado como índice do vetor rom_mem. A instrução em binário será passada para i_out
-    assign i_out = rom_mem[address[-1:2]];
+    assign i_out = rom_mem[address[address_data-1:2]];
     
 endmodule

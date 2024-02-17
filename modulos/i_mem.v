@@ -1,3 +1,12 @@
+// Universidade Federal Rural de Pernambuco
+// 2023.1
+// Arquitetura e Organização de Computadores - 2ªVA
+// Alunos:
+// Beatriz Pereira
+// Leonardo Viana
+// Paloma Raissa
+// Ricardo Zaidan
+// -----------------------------
 module i_mem (address, i_out);
 
     // Declaração de entradas e saída

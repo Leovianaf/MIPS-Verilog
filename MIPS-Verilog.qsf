@@ -49,9 +49,8 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE modulos/components/mux_32.v
+set_global_assignment -name VERILOG_FILE modulos/components/mux_5_4.v
 set_global_assignment -name VERILOG_FILE modulos/regfile.v
 set_global_assignment -name VERILOG_FILE modulos/ula.v
 set_global_assignment -name VERILOG_FILE modulos/control/ula_ctrl.v
@@ -60,4 +59,9 @@ set_global_assignment -name VERILOG_FILE modulos/control/jr_ctrl.v
 set_global_assignment -name VERILOG_FILE modulos/control/control.v
 set_global_assignment -name VERILOG_FILE modulos/i_mem.v
 set_global_assignment -name VERILOG_FILE modulos/sign_extend.v
+set_global_assignment -name VERILOG_FILE modulos/components/mux_32_4.v
+set_global_assignment -name VERILOG_FILE modulos/components/mux_src.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,10 +1,18 @@
-module mux_5_4(inst0, inst1, inst2, inst3, RegDst, imem_to_write_addr);
-	// Declaração das entradas e saída
-	input [4:0] inst0, inst1, inst2, inst3;
-	input [1:0] RegDst; // <= sinal da Control
-	output wire [4:0] imem_to_write_addr;
+// Universidade Federal Rural de Pernambuco
+// 2023.1
+// Arquitetura e Organização de Computadores - 2ªVA
+// Alunos:
+// Beatriz Pereira, Leonardo Viana, Paloma Raissa, Ricardo Zaidan
+// -----------------------------
 
-	// Determinação do multiplexador
-	assign imem_to_write_addr = RegDst[1] ? (RegDst[0] ? inst3 : inst2) : (RegDst[0] ? inst1 : inst0);
+// Mux de 5 bits, com 1 bit de seleção trazido do RegDst para saber qual será o endereço de escrita
+module mux_5_4(rt, rd, RegDst, imem_to_write_addr);
+    // Declaração das entradas e saída
+    input [4:0] rt, rd;
+    input [0:0] RegDst; // <= sinal da Control
+    output wire [4:0] imem_to_write_addr;
+
+    // Determinação do multiplexador
+    assign imem_to_write_addr = RegDst ? rd : rt;
 
 endmodule

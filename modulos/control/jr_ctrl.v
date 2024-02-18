@@ -2,11 +2,9 @@
 // 2023.1
 // Arquitetura e Organização de Computadores - 2ªVA
 // Alunos:
-// Beatriz Pereira
-// Leonardo Viana
-// Paloma Raissa
-// Ricardo Zaidan
+// Beatriz Pereira, Leonardo Viana, Paloma Raissa, Ricardo Zaidan
 // -----------------------------
+
 module jr_ctrl(opcode, func, ReadData1, JR_control);
 
 	//Declarar entradas e saídas

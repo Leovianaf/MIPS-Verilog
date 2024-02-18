@@ -2,11 +2,9 @@
 // 2023.1
 // Arquitetura e Organização de Computadores - 2ªVA
 // Alunos:
-// Beatriz Pereira
-// Leonardo Viana
-// Paloma Raissa
-// Ricardo Zaidan
+// Beatriz Pereira, Leonardo Viana, Paloma Raissa, Ricardo Zaidan
 // -----------------------------
+
 module ula(A, B, Op, shamt, result, zero);
    input wire [31:0] A, B; // Entrada dos operandos
    input wire [3:0] Op; // Sinal de controle para operacoes da ULA

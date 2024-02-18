@@ -2,11 +2,9 @@
 // 2023.1
 // Arquitetura e Organização de Computadores - 2ªVA
 // Alunos:
-// Beatriz Pereira
-// Leonardo Viana
-// Paloma Raissa
-// Ricardo Zaidan
+// Beatriz Pereira, Leonardo Viana, Paloma Raissa, Ricardo Zaidan
 // -----------------------------
+
 module ula_ctrl(AluOp, func, op);
 	
 	input wire [3:0] AluOp;

@@ -2,11 +2,9 @@
 // 2023.1
 // Arquitetura e Organização de Computadores - 2ªVA
 // Alunos:
-// Beatriz Pereira
-// Leonardo Viana
-// Paloma Raissa
-// Ricardo Zaidan
+// Beatriz Pereira, Leonardo Viana, Paloma Raissa, Ricardo Zaidan
 // -----------------------------
+
 module sign_extend (in, is_signed, out);
     input wire [15:0] in; // Palavra de entrada com 16 bits
     input wire is_signed;	// Sinal de controle para saber se a palavra deve ser estendida ou não

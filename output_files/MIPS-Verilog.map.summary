@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Successful - Sat Feb 17 19:46:51 2024
+Analysis & Synthesis Status : Successful - Sun Feb 18 16:18:42 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : MIPS-Verilog
-Top-level Entity Name : mux_32
+Top-level Entity Name : mux_src
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 0

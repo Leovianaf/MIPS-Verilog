@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS-Verilog
-Sat Feb 17 19:46:51 2024
+Sun Feb 18 16:18:42 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -44,10 +44,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Feb 17 19:46:51 2024       ;
+; Analysis & Synthesis Status     ; Successful - Sun Feb 18 16:18:42 2024       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS-Verilog                                ;
-; Top-level Entity Name           ; mux_32                                      ;
+; Top-level Entity Name           ; mux_src                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 0                                           ;
@@ -70,7 +70,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; mux_32             ; MIPS-Verilog       ;
+; Top-level entity name                                                           ; mux_src            ; MIPS-Verilog       ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -167,40 +167,40 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                              ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
-; modulos/components/mux_32.v      ; yes             ; User Verilog HDL File  ; C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
+; modulos/components/mux_src.v     ; yes             ; User Verilog HDL File  ; C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_src.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary           ;
-+---------------------------------------------+---------+
-; Resource                                    ; Usage   ;
-+---------------------------------------------+---------+
-; Estimate of Logic utilization (ALMs needed) ; 16      ;
-;                                             ;         ;
-; Combinational ALUT usage for logic          ; 32      ;
-;     -- 7 input functions                    ; 0       ;
-;     -- 6 input functions                    ; 0       ;
-;     -- 5 input functions                    ; 0       ;
-;     -- 4 input functions                    ; 0       ;
-;     -- <=3 input functions                  ; 32      ;
-;                                             ;         ;
-; Dedicated logic registers                   ; 0       ;
-;                                             ;         ;
-; I/O pins                                    ; 97      ;
-;                                             ;         ;
-; Total DSP Blocks                            ; 0       ;
-;                                             ;         ;
-; Maximum fan-out node                        ; S~input ;
-; Maximum fan-out                             ; 32      ;
-; Total fan-out                               ; 225     ;
-; Average fan-out                             ; 1.00    ;
-+---------------------------------------------+---------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 16           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 32           ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 0            ;
+;     -- 5 input functions                    ; 0            ;
+;     -- 4 input functions                    ; 0            ;
+;     -- <=3 input functions                  ; 32           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 97           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; ALUsrc~input ;
+; Maximum fan-out                             ; 32           ;
+; Total fan-out                               ; 225          ;
+; Average fan-out                             ; 1.00         ;
++---------------------------------------------+--------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -208,7 +208,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |mux_32                    ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 97   ; 0            ; |mux_32             ; mux_32      ; work         ;
+; |mux_src                   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 97   ; 0            ; |mux_src            ; mux_src     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -258,35 +258,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Feb 17 19:46:38 2024
+    Info: Processing started: Sun Feb 18 16:18:33 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS-Verilog -c MIPS-Verilog
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_32.v
-    Info (12023): Found entity 1: mux_32 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_5_4.v
-    Info (12023): Found entity 1: mux_5_4 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_5_4.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/regfile.v
-    Info (12023): Found entity 1: regfile File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/regfile.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/pc.v
+    Info (12023): Found entity 1: pc File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/pc.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/ula.v
-    Info (12023): Found entity 1: ula File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/ula.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/ula_ctrl.v
-    Info (12023): Found entity 1: ula_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/ula_ctrl.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/pc_ctrl.v
-    Info (12023): Found entity 1: PC_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/jr_ctrl.v
-    Info (12023): Found entity 1: jr_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/jr_ctrl.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/control.v
-    Info (12023): Found entity 1: control File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/control.v Line: 10
+    Info (12023): Found entity 1: ula File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/ula.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/regfile.v
+    Info (12023): Found entity 1: regfile File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/regfile.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/d_mem.v
+    Info (12023): Found entity 1: d_mem File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/d_mem.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/i_mem.v
-    Info (12023): Found entity 1: i_mem File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/i_mem.v Line: 10
+    Info (12023): Found entity 1: i_mem File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/i_mem.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/jump.v
+    Info (12023): Found entity 1: jump File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/jump.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/sign_extend.v
-    Info (12023): Found entity 1: sign_extend File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/sign_extend.v Line: 10
+    Info (12023): Found entity 1: sign_extend File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/sign_extend.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/ula_ctrl.v
+    Info (12023): Found entity 1: ula_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/ula_ctrl.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/pc_ctrl.v
+    Info (12023): Found entity 1: PC_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/jr_ctrl.v
+    Info (12023): Found entity 1: jr_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/jr_ctrl.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/control.v
+    Info (12023): Found entity 1: control File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/control.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_32.v
+    Info (12023): Found entity 1: mux_32 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_32_4.v
-    Info (12023): Found entity 1: mux_32_4 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_4.v Line: 1
+    Info (12023): Found entity 1: mux_32_4 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_4.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_src.v
-    Info (12023): Found entity 1: mux_src File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_src.v Line: 1
-Info (12127): Elaborating entity "mux_32" for the top level hierarchy
+    Info (12023): Found entity 1: mux_src File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_src.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_5_regdst.v
+    Info (12023): Found entity 1: mux_5_regdst File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_5_regdst.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/somador32.v
+    Info (12023): Found entity 1: somador32 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/somador32.v Line: 8
+Info (12127): Elaborating entity "mux_src" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/output_files/MIPS-Verilog.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -296,10 +304,10 @@ Info (21057): Implemented 129 device resources after synthesis - the final resou
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 32 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4807 megabytes
-    Info: Processing ended: Sat Feb 17 19:46:51 2024
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:33
+    Info: Peak virtual memory: 4811 megabytes
+    Info: Processing ended: Sun Feb 18 16:18:42 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:22
 
 
 +------------------------------------------+

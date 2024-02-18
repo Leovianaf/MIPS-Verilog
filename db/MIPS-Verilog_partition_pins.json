@@ -4,391 +4,391 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Y[0]",
+					"name" : "ALUin2[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[1]",
+					"name" : "ALUin2[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[2]",
+					"name" : "ALUin2[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[3]",
+					"name" : "ALUin2[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[4]",
+					"name" : "ALUin2[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[5]",
+					"name" : "ALUin2[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[6]",
+					"name" : "ALUin2[6]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[7]",
+					"name" : "ALUin2[7]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[8]",
+					"name" : "ALUin2[8]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[9]",
+					"name" : "ALUin2[9]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[10]",
+					"name" : "ALUin2[10]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[11]",
+					"name" : "ALUin2[11]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[12]",
+					"name" : "ALUin2[12]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[13]",
+					"name" : "ALUin2[13]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[14]",
+					"name" : "ALUin2[14]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[15]",
+					"name" : "ALUin2[15]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[16]",
+					"name" : "ALUin2[16]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[17]",
+					"name" : "ALUin2[17]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[18]",
+					"name" : "ALUin2[18]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[19]",
+					"name" : "ALUin2[19]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[20]",
+					"name" : "ALUin2[20]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[21]",
+					"name" : "ALUin2[21]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[22]",
+					"name" : "ALUin2[22]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[23]",
+					"name" : "ALUin2[23]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[24]",
+					"name" : "ALUin2[24]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[25]",
+					"name" : "ALUin2[25]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[26]",
+					"name" : "ALUin2[26]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[27]",
+					"name" : "ALUin2[27]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[28]",
+					"name" : "ALUin2[28]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[29]",
+					"name" : "ALUin2[29]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[30]",
+					"name" : "ALUin2[30]",
 					"strict" : false
 				},
 				{
-					"name" : "Y[31]",
+					"name" : "ALUin2[31]",
 					"strict" : false
 				},
 				{
-					"name" : "B[0]",
+					"name" : "ALUsrc",
 					"strict" : false
 				},
 				{
-					"name" : "S",
+					"name" : "signExtended32[0]",
 					"strict" : false
 				},
 				{
-					"name" : "A[0]",
+					"name" : "read_d2[0]",
 					"strict" : false
 				},
 				{
-					"name" : "B[1]",
+					"name" : "signExtended32[1]",
 					"strict" : false
 				},
 				{
-					"name" : "A[1]",
+					"name" : "read_d2[1]",
 					"strict" : false
 				},
 				{
-					"name" : "B[2]",
+					"name" : "signExtended32[2]",
 					"strict" : false
 				},
 				{
-					"name" : "A[2]",
+					"name" : "read_d2[2]",
 					"strict" : false
 				},
 				{
-					"name" : "B[3]",
+					"name" : "signExtended32[3]",
 					"strict" : false
 				},
 				{
-					"name" : "A[3]",
+					"name" : "read_d2[3]",
 					"strict" : false
 				},
 				{
-					"name" : "B[4]",
+					"name" : "signExtended32[4]",
 					"strict" : false
 				},
 				{
-					"name" : "A[4]",
+					"name" : "read_d2[4]",
 					"strict" : false
 				},
 				{
-					"name" : "B[5]",
+					"name" : "signExtended32[5]",
 					"strict" : false
 				},
 				{
-					"name" : "A[5]",
+					"name" : "read_d2[5]",
 					"strict" : false
 				},
 				{
-					"name" : "B[6]",
+					"name" : "signExtended32[6]",
 					"strict" : false
 				},
 				{
-					"name" : "A[6]",
+					"name" : "read_d2[6]",
 					"strict" : false
 				},
 				{
-					"name" : "B[7]",
+					"name" : "signExtended32[7]",
 					"strict" : false
 				},
 				{
-					"name" : "A[7]",
+					"name" : "read_d2[7]",
 					"strict" : false
 				},
 				{
-					"name" : "B[8]",
+					"name" : "signExtended32[8]",
 					"strict" : false
 				},
 				{
-					"name" : "A[8]",
+					"name" : "read_d2[8]",
 					"strict" : false
 				},
 				{
-					"name" : "B[9]",
+					"name" : "signExtended32[9]",
 					"strict" : false
 				},
 				{
-					"name" : "A[9]",
+					"name" : "read_d2[9]",
 					"strict" : false
 				},
 				{
-					"name" : "B[10]",
+					"name" : "signExtended32[10]",
 					"strict" : false
 				},
 				{
-					"name" : "A[10]",
+					"name" : "read_d2[10]",
 					"strict" : false
 				},
 				{
-					"name" : "B[11]",
+					"name" : "signExtended32[11]",
 					"strict" : false
 				},
 				{
-					"name" : "A[11]",
+					"name" : "read_d2[11]",
 					"strict" : false
 				},
 				{
-					"name" : "B[12]",
+					"name" : "signExtended32[12]",
 					"strict" : false
 				},
 				{
-					"name" : "A[12]",
+					"name" : "read_d2[12]",
 					"strict" : false
 				},
 				{
-					"name" : "B[13]",
+					"name" : "signExtended32[13]",
 					"strict" : false
 				},
 				{
-					"name" : "A[13]",
+					"name" : "read_d2[13]",
 					"strict" : false
 				},
 				{
-					"name" : "B[14]",
+					"name" : "signExtended32[14]",
 					"strict" : false
 				},
 				{
-					"name" : "A[14]",
+					"name" : "read_d2[14]",
 					"strict" : false
 				},
 				{
-					"name" : "B[15]",
+					"name" : "signExtended32[15]",
 					"strict" : false
 				},
 				{
-					"name" : "A[15]",
+					"name" : "read_d2[15]",
 					"strict" : false
 				},
 				{
-					"name" : "B[16]",
+					"name" : "signExtended32[16]",
 					"strict" : false
 				},
 				{
-					"name" : "A[16]",
+					"name" : "read_d2[16]",
 					"strict" : false
 				},
 				{
-					"name" : "B[17]",
+					"name" : "signExtended32[17]",
 					"strict" : false
 				},
 				{
-					"name" : "A[17]",
+					"name" : "read_d2[17]",
 					"strict" : false
 				},
 				{
-					"name" : "B[18]",
+					"name" : "signExtended32[18]",
 					"strict" : false
 				},
 				{
-					"name" : "A[18]",
+					"name" : "read_d2[18]",
 					"strict" : false
 				},
 				{
-					"name" : "B[19]",
+					"name" : "signExtended32[19]",
 					"strict" : false
 				},
 				{
-					"name" : "A[19]",
+					"name" : "read_d2[19]",
 					"strict" : false
 				},
 				{
-					"name" : "B[20]",
+					"name" : "signExtended32[20]",
 					"strict" : false
 				},
 				{
-					"name" : "A[20]",
+					"name" : "read_d2[20]",
 					"strict" : false
 				},
 				{
-					"name" : "B[21]",
+					"name" : "signExtended32[21]",
 					"strict" : false
 				},
 				{
-					"name" : "A[21]",
+					"name" : "read_d2[21]",
 					"strict" : false
 				},
 				{
-					"name" : "B[22]",
+					"name" : "signExtended32[22]",
 					"strict" : false
 				},
 				{
-					"name" : "A[22]",
+					"name" : "read_d2[22]",
 					"strict" : false
 				},
 				{
-					"name" : "B[23]",
+					"name" : "signExtended32[23]",
 					"strict" : false
 				},
 				{
-					"name" : "A[23]",
+					"name" : "read_d2[23]",
 					"strict" : false
 				},
 				{
-					"name" : "B[24]",
+					"name" : "signExtended32[24]",
 					"strict" : false
 				},
 				{
-					"name" : "A[24]",
+					"name" : "read_d2[24]",
 					"strict" : false
 				},
 				{
-					"name" : "B[25]",
+					"name" : "signExtended32[25]",
 					"strict" : false
 				},
 				{
-					"name" : "A[25]",
+					"name" : "read_d2[25]",
 					"strict" : false
 				},
 				{
-					"name" : "B[26]",
+					"name" : "signExtended32[26]",
 					"strict" : false
 				},
 				{
-					"name" : "A[26]",
+					"name" : "read_d2[26]",
 					"strict" : false
 				},
 				{
-					"name" : "B[27]",
+					"name" : "signExtended32[27]",
 					"strict" : false
 				},
 				{
-					"name" : "A[27]",
+					"name" : "read_d2[27]",
 					"strict" : false
 				},
 				{
-					"name" : "B[28]",
+					"name" : "signExtended32[28]",
 					"strict" : false
 				},
 				{
-					"name" : "A[28]",
+					"name" : "read_d2[28]",
 					"strict" : false
 				},
 				{
-					"name" : "B[29]",
+					"name" : "signExtended32[29]",
 					"strict" : false
 				},
 				{
-					"name" : "A[29]",
+					"name" : "read_d2[29]",
 					"strict" : false
 				},
 				{
-					"name" : "B[30]",
+					"name" : "signExtended32[30]",
 					"strict" : false
 				},
 				{
-					"name" : "A[30]",
+					"name" : "read_d2[30]",
 					"strict" : false
 				},
 				{
-					"name" : "B[31]",
+					"name" : "signExtended32[31]",
 					"strict" : false
 				},
 				{
-					"name" : "A[31]",
+					"name" : "read_d2[31]",
 					"strict" : false
 				}
 			]

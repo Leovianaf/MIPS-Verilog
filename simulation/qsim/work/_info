@@ -1,0 +1,149 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim
+vmux_32_4
+Z1 !s110 1708272079
+!i10b 1
+!s100 7P15BBEUTA6IkTD^S?BTD0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IF32EX0:6?dME9O8[c;=;12
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1708272078
+Z4 8MIPS-Verilog.vo
+Z5 FMIPS-Verilog.vo
+!i122 2
+L0 32 3128
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z7 !s108 1708272079.000000
+Z8 !s107 MIPS-Verilog.vo|
+Z9 !s90 -work|work|MIPS-Verilog.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+vmux_32_4_vlg_vec_tst
+R1
+!i10b 1
+!s100 nn0Ac>J>@SHdBZhQQk8YR3
+R2
+IQZiNL=6TiKHZfbgV_iMRW3
+R3
+R0
+w1708272077
+Z12 8Waveform.vwf.vt
+Z13 FWaveform.vwf.vt
+!i122 3
+L0 30 680
+R6
+r1
+!s85 0
+31
+R7
+Z14 !s107 Waveform.vwf.vt|
+Z15 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R10
+R11
+vmux_5_regdst
+!s110 1708273624
+!i10b 1
+!s100 ac?HK<5UJe`9ZKKD2NkIe0
+R2
+Ie5EPA]Ho;[4g>If<WKP861
+R3
+R0
+w1708273623
+R4
+R5
+!i122 16
+L0 32 404
+R6
+r1
+!s85 0
+31
+Z16 !s108 1708273624.000000
+R8
+R9
+!i113 1
+R10
+R11
+vmux_5_regdst_vlg_vec_tst
+!s110 1708273625
+!i10b 1
+!s100 P5Bd3C17EcjmkXDe52C912
+R2
+IdOaSYa]lCE9KWG09?@F950
+R3
+R0
+w1708273622
+R12
+R13
+!i122 17
+L0 30 80
+R6
+r1
+!s85 0
+31
+R16
+R14
+R15
+!i113 1
+R10
+R11
+vsomador32
+Z17 !s110 1708283852
+!i10b 1
+!s100 @=FG?MUiO>PGAPF<aAA=B3
+R2
+IPAd39a[b_b>:3CK0Zi9a91
+R3
+R0
+w1708283851
+R4
+R5
+!i122 18
+L0 32 2287
+R6
+r1
+!s85 0
+31
+Z18 !s108 1708283852.000000
+R8
+R9
+!i113 1
+R10
+R11
+vsomador32_vlg_vec_tst
+R17
+!i10b 1
+!s100 WghjJ5I2U376n:nbiG0=F3
+R2
+IINKVHLX5k9T<elYkfOldR1
+R3
+R0
+w1708283850
+R12
+R13
+!i122 19
+L0 30 340
+R6
+r1
+!s85 0
+31
+R18
+R14
+R15
+!i113 1
+R10
+R11

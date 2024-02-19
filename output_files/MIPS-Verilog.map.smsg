@@ -1,3 +1,1 @@
 Warning (10273): Verilog HDL warning at d_mem.v(29): extended using "x" or "z" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/d_mem.v Line: 29
-Warning (10273): Verilog HDL warning at jr_ctrl.v(19): extended using "x" or "z" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/jr_ctrl.v Line: 19
-Info (10281): Verilog HDL Declaration information at mips_top_level.v(14): object "Branch" differs only in case from object "branch" in the same scope File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 14

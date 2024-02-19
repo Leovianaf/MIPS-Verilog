@@ -7,15 +7,19 @@
 
 module ula_ctrl(AluOp, func, op);
 	
-	input wire [3:0] AluOp;
+	input wire [2:0] AluOp;
    input wire [5:0] func;
    output reg [3:0] op;
 
    always @(*) begin
 		case (AluOp)
-			4'b0000: op <= 4'b0010; //ADDI, LW, SW => Utiliza ADD
-         4'b0001: op <= 4'b0110; //Branch => Utiliza SUB
-         4'b0010: //Instruções do tipo R
+			3'b000: op <= 4'b0010; //ADDI, LW, SW, LUI => Utiliza ADD
+         3'b001: op <= 4'b0110; //Branch => Utiliza SUB
+			3'b010: op <= 4'b0000; //andi
+			3'b011: op <= 4'b0001; //ori
+			3'b100: op <= 4'b1101; //xori
+			3'b101: op <= 4'b0111; //slti e sltiu
+         3'b110: //Instruções do tipo R
 				case (func) // Mandar o codigo certo para a ULA com base no func
 					6'b000100: op <= 4'b1110; //SLLV
 					6'b000110: op <= 4'b1111; //SRLV
@@ -33,13 +37,7 @@ module ula_ctrl(AluOp, func, op);
 					6'b101011: op <= 4'b0111; //SLTU
 					default: op <= 4'b0000; //defaults to AND
 				endcase
-         4'b0011: op <= 4'b0111; //slti
-         4'b1000: op <= 4'b1000; //sltiu
-         4'b0100: op <= 4'b0000; //andi
-         4'b0101: op <= 4'b0001; //ori
-         4'b0110: op <= 4'b1101; //xori
-         4'b0111: op <= 4'b1011; //lui
-			default: op <= 4'b0000; //defaults to AND
+			default: op <= 4'bxxxx; //default
 		endcase 
 	end
 

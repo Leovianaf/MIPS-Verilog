@@ -4,391 +4,135 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "ALUin2[0]",
+					"name" : "nextPC[0]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[1]",
+					"name" : "nextPC[1]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[2]",
+					"name" : "nextPC[2]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[3]",
+					"name" : "nextPC[3]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[4]",
+					"name" : "nextPC[4]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[5]",
+					"name" : "nextPC[5]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[6]",
+					"name" : "nextPC[6]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[7]",
+					"name" : "nextPC[7]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[8]",
+					"name" : "nextPC[8]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[9]",
+					"name" : "nextPC[9]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[10]",
+					"name" : "nextPC[10]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[11]",
+					"name" : "nextPC[11]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[12]",
+					"name" : "nextPC[12]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[13]",
+					"name" : "nextPC[13]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[14]",
+					"name" : "nextPC[14]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[15]",
+					"name" : "nextPC[15]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[16]",
+					"name" : "nextPC[16]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[17]",
+					"name" : "nextPC[17]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[18]",
+					"name" : "nextPC[18]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[19]",
+					"name" : "nextPC[19]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[20]",
+					"name" : "nextPC[20]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[21]",
+					"name" : "nextPC[21]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[22]",
+					"name" : "nextPC[22]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[23]",
+					"name" : "nextPC[23]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[24]",
+					"name" : "nextPC[24]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[25]",
+					"name" : "nextPC[25]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[26]",
+					"name" : "nextPC[26]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[27]",
+					"name" : "nextPC[27]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[28]",
+					"name" : "nextPC[28]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[29]",
+					"name" : "nextPC[29]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[30]",
+					"name" : "nextPC[30]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUin2[31]",
+					"name" : "nextPC[31]",
 					"strict" : false
 				},
 				{
-					"name" : "ALUsrc",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[0]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[0]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[1]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[2]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[2]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[3]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[3]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[4]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[4]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[5]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[5]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[6]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[6]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[7]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[7]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[8]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[8]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[9]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[9]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[10]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[10]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[11]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[11]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[12]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[12]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[13]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[13]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[14]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[14]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[15]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[15]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[16]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[16]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[17]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[17]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[18]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[18]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[19]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[19]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[20]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[20]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[21]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[21]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[22]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[22]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[23]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[23]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[24]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[24]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[25]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[25]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[26]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[26]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[27]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[27]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[28]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[28]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[29]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[29]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[30]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[30]",
-					"strict" : false
-				},
-				{
-					"name" : "signExtended32[31]",
-					"strict" : false
-				},
-				{
-					"name" : "read_d2[31]",
+					"name" : "clock",
 					"strict" : false
 				}
 			]

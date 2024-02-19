@@ -22,6 +22,6 @@ module i_mem (address, i_out);
 
 	 // O endereço da instrução sera obtido a partir dos 5 ultimos bits de address, depois
 	 // seleciona os 8 bits menos significativos de 'address'
-    assign i_out = rom_mem[address[9:2]];
+    assign i_out = rom_mem[address];
     
 endmodule

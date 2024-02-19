@@ -11,11 +11,11 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 
 	// Unidade de controle
 	// instruction [31:26] = opcode
-	wire MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite, Branch, isSigned, RegDst;
-	wire [2:0] PCOp;
-	wire [3:0] ALUOp;
+	wire RegDst, MemRead, MemWrite, ALUSrc, RegWrite, Branch, BranchNe, Jump, isSigned;
+	wire [1:0] MemtoReg;
+	wire [2:0] ALUOp;
 	control mips_control (
-		instruction[31:26],
+		opcode,
 		RegDst,
 		MemRead,
 		MemtoReg,
@@ -24,25 +24,36 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 		ALUSrc,
 		RegWrite,
 		Branch,
-		isSigned,
-		PCOp
+		BranchNe,
+		Jump,
+		isSigned
 	);
 	
 	// Memoria de instrucao
 	wire [31:0] instruction;
+	wire [5:0] opcode = instruction[31:26];
+	wire [4:0] rt = instruction[20:16];
+	wire [4:0] rd = instruction[15:11];
+	wire [4:0] shamt = instruction[10:6];
+	wire [5:0] func = instruction[5:0];
+	wire [15:0] imm = instruction[15:0];
+	wire [25:0] address = instruction[25:0];
 	i_mem current_instruction(pc, instruction);
 	
-	// MUX (i_mem e regfile)
-	// 0 => RT (instrucao tipo I)
-	// 1 => RD (instrucao tipo R)
+	// MUX RegDst(i_mem e regfile)
+	// 00 => RT (instrucao tipo I)
+	// 01 => RD (instrucao tipo R)
+	// 10 => 31 ($ra instrucao JAL)
 	wire [4:0] imem_to_write_addr;
-	mux_5_regdst imem_reg_mux(instruction[20:16], instruction[15:11], RegDst, imem_to_write_addr);
+	assign imem_to_write_addr = Jump ? 5'd31 : (RegDst ? rd : rt); // Se for Jump, Write address = $ra (31) | Se nao, sera definido por RegDst entre 0 (rd) e 1 (rt)
 	
-	// MUX (Write Data)
-	// 0 => Vem de ULA
-	// 1 => Vem de D_Mem
+	// MUX MemtoReg(Write Data)
+	// 00 => Vem de ULA
+	// 01 => Vem de D_Mem
+	// 10 => Vem do PC + 4
 	wire [31:0] write_data_reg;
-	mux_32 write_data__reg_mux(ula_result, data_mem, MemtoReg, write_data_reg);
+	assign write_data_reg = (MemtoReg == 2'b00) ? ula_result:
+									(MemtoReg == 2'b01) ? data_mem: current_pc + 4;
 	
 	// Regfile
 	// instruction [25:21] = rs
@@ -61,14 +72,13 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 	);
 
 	// ULA control
-	// instruction [5:0] = func
-	ula_ctrl mips_ula_control(ALUOp, instruction[5:0], OP);
+	ula_ctrl mips_ula_control(ALUOp, func, OP);
 	
 	// Extensor de sinal 16 para 32 bits
 	// Se isSigned = 0, adiciona 16 0 na frente
 	// Se isSigned = 1, replica o bit mais significativo, para manter sinal
 	wire [31:0] sign_extend_to_mux;
-	sign_extend mips_sign_extend(instruction[15:0], isSigned, sign_extend_to_mux);
+	sign_extend mips_sign_extend(imm, isSigned, sign_extend_to_mux);
 	
 	// MUX (regfile e ula)
 	mux_32 regfile_ula_mux(ReadData2, sign_extend_to_mux, ALUSrc, output_to_ula_2);
@@ -77,48 +87,20 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 	wire [31:0] mux_regfile_to_ula_2;
 	wire [3:0] OP;
 	wire ula_zero_flag;
-	ula mips_ula(ReadData1, output_to_ula_2, OP, instruction[10:6], ula_result, ula_zero_flag);
-	
-	// Program Counter (PC)
-	wire [31:0] current_pc;
-	
-	assign nextPC = current_pc + 32'h00000004; // Soma o pc atual + 4, para ir para a proxima instrucao
-	
-	pc pc_counter(nextPC, current_pc, clock);
+	ula mips_ula(ReadData1, output_to_ula_2, OP, shamt, ula_result, ula_zero_flag);
 
 	// Memoria de dados
 	// ula_result = address
 	// ReadData2 = Write data
 	d_mem mips_d_mem(ula_result, ReadData2, MemWrite, MemRead, data_mem);
 
+	// Program Counter (PC)
+	wire [31:0] current_pc, pc_plus;
 	
-	// Somador para branch
-	wire [31:0] branch_mux;
-	somador32 branch(nextPC, (sign_extend_to_mux << 2), branch_mux);
-
-	// Jump
-	wire [31:0] jump_to_mux;
-	jump mips_jump(nextPC[31:28], instruction[25:0], jump_to_mux);
-
-	// JR
-	// ReadData1 contem o valor de rs (informado na instrucao)
-	// ALUOp = 0010 | func = 001000 para jr
-	wire [31:0] jr_to_mux;
-	jr_ctrl mips_jr_control(ALUOp, instruction[5:0], ReadData1, PCOp, jr_to_mux);
+	pc mips_pc_counter(nextPC, current_pc, clock);
 	
-	// JAL
-	// Jal => reg[31] = pc, pc = addressTarget << 2
-	wire [31:0] pc_increment_8;
-	wire [31:0] jal_to_mux;
-	somador32 pc_to_jal(current_pc, 8, pc_increment_8);
-	assign mips_regfile[30] = pc_increment_8;
-	assign jal_to_mux = {nextPC[31:28], instruction[25:0], 2'b00}; 
+	pc_plus mips_pc_plus(current_pc, pc_plus);
 	
-	// PC control, retorna uma saida de 2 bits para ver qual sera a proxima instrucao
-	wire [2:0] PCSource;	// 000 = PC + 4 | 001 = beq | 001 = bne | 010 = j | 011 = jr | 100 = jal
-	PC_ctrl pc_control(PCOp, ula_zero_flag, PCSource);
-
-	// Atribuicao da proxima instrucao do PC
-	mux_32_5 pc_mux (nextPC, branch_mux, jump_to_mux, jr_to_mux, jal_to_mux, PCSource, nextPC);
+	proxPC mips_prox_pc(pc_plus, address, Jump, Branch, BranchNe,  ula_zero_flag, sign_extend_to_mux, nextPC);
 	
 endmodule

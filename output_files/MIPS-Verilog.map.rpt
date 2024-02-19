@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS-Verilog
-Sun Feb 18 16:18:42 2024
+Sun Feb 18 23:26:45 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,14 +10,16 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
- 12. Analysis & Synthesis Suppressed Messages
+  5. Port Connectivity Checks: "mux_32_5:pc_mux"
+  6. Port Connectivity Checks: "somador32:pc_to_jal"
+  7. Port Connectivity Checks: "somador32:branch"
+  8. Port Connectivity Checks: "ula:mips_ula"
+  9. Port Connectivity Checks: "mux_32:regfile_ula_mux"
+ 10. Port Connectivity Checks: "regfile:mips_regfile"
+ 11. Port Connectivity Checks: "i_mem:current_instruction"
+ 12. Port Connectivity Checks: "control:mips_control"
+ 13. Analysis & Synthesis Messages
+ 14. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -41,27 +43,22 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Feb 18 16:18:42 2024       ;
-; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name                   ; MIPS-Verilog                                ;
-; Top-level Entity Name           ; mux_src                                     ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 97                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Sun Feb 18 23:26:45 2024           ;
+; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name               ; MIPS-Verilog                                ;
+; Top-level Entity Name       ; mips_top_level                              ;
+; Family                      ; Cyclone V                                   ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
+; Total registers             ; N/A until Partition Merge                   ;
+; Total pins                  ; N/A until Partition Merge                   ;
+; Total virtual pins          ; N/A until Partition Merge                   ;
+; Total block memory bits     ; N/A until Partition Merge                   ;
+; Total PLLs                  ; N/A until Partition Merge                   ;
+; Total DLLs                  ; N/A until Partition Merge                   ;
++-----------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -70,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; mux_src            ; MIPS-Verilog       ;
+; Top-level entity name                                                           ; mips_top_level     ; MIPS-Verilog       ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -167,89 +164,92 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                             ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                               ; Library ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
-; modulos/components/mux_src.v     ; yes             ; User Verilog HDL File  ; C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_src.v ;         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------+---------+
++---------------------------------------------+
+; Port Connectivity Checks: "mux_32_5:pc_mux" ;
++---------+-------+----------+----------------+
+; Port    ; Type  ; Severity ; Details        ;
++---------+-------+----------+----------------+
+; E[1..0] ; Input ; Info     ; Stuck at GND   ;
++---------+-------+----------+----------------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 16           ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 32           ;
-;     -- 7 input functions                    ; 0            ;
-;     -- 6 input functions                    ; 0            ;
-;     -- 5 input functions                    ; 0            ;
-;     -- 4 input functions                    ; 0            ;
-;     -- <=3 input functions                  ; 32           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 0            ;
-;                                             ;              ;
-; I/O pins                                    ; 97           ;
-;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; ALUsrc~input ;
-; Maximum fan-out                             ; 32           ;
-; Total fan-out                               ; 225          ;
-; Average fan-out                             ; 1.00         ;
-+---------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "somador32:pc_to_jal"                                                                      ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; in2[31..4] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; in2[2..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; in2[3]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; out        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |mux_src                   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 97   ; 0            ; |mux_src            ; mux_src     ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
++----------------------------------------------+
+; Port Connectivity Checks: "somador32:branch" ;
++-----------+-------+----------+---------------+
+; Port      ; Type  ; Severity ; Details       ;
++-----------+-------+----------+---------------+
+; in2[1..0] ; Input ; Info     ; Stuck at GND  ;
++-----------+-------+----------+---------------+
 
 
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ula:mips_ula"                                                                                                                              ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; B    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "B[31..1]" will be connected to GND. ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 32                          ;
-;     normal            ; 32                          ;
-;         3 data inputs ; 32                          ;
-; boundary_port         ; 97                          ;
-;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 1.00                        ;
-+-----------------------+-----------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux_32:regfile_ula_mux"                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Y    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "Y[31..1]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile:mips_regfile"                                                                                                                                                                    ;
++------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                                                                            ;
++------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; clk        ; Input  ; Warning  ; Input port expression (5 bits) is wider than the input port (1 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
+; rst        ; Input  ; Warning  ; Input port expression (5 bits) is wider than the input port (1 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
+; reg_write  ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; read_addr1 ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; read_addr2 ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "read_addr2[4..1]" will be connected to GND.                                 ;
+; read_d1    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "read_d1[31..1]" have no fanouts                                                       ;
+; read_d2    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "read_d2[31..1]" have no fanouts                                                       ;
+; read_d2    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i_mem:current_instruction"                                                                                                                          ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                           ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "address[31..1]" will be connected to GND. ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:mips_control"                                                                                                                                                     ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                               ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; RegDst   ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "RegDst[1..1]" have no fanouts                                             ;
+; PCOp     ; Output ; Warning  ; Output or bidir port (3 bits) is wider than the port expression (1 bits) it drives; bit(s) "PCOp[2..1]" have no fanouts                                               ;
+; MemtoReg ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (4 bits) it drives.  The 3 most-significant bit(s) in the port expression will be connected to GND. ;
+; ALUOp    ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "ALUOp[3..1]" have no fanouts                                              ;
+; ALUSrc   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
+; RegWrite ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
+; isSigned ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (3 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND. ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -258,7 +258,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Feb 18 16:18:33 2024
+    Info: Processing started: Sun Feb 18 23:26:35 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS-Verilog -c MIPS-Verilog
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -282,32 +282,484 @@ Info (12021): Found 1 design units, including 1 entities, in source file modulos
     Info (12023): Found entity 1: PC_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/jr_ctrl.v
     Info (12023): Found entity 1: jr_ctrl File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/jr_ctrl.v Line: 8
+Warning (10229): Verilog HDL Expression warning at control.v(55): truncated literal to match 2 bits File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/control.v Line: 55
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/control/control.v
     Info (12023): Found entity 1: control File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/control.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_32.v
     Info (12023): Found entity 1: mux_32 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32.v Line: 9
-Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_32_4.v
-    Info (12023): Found entity 1: mux_32_4 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_4.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_32_5.v
+    Info (12023): Found entity 1: mux_32_5 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_src.v
     Info (12023): Found entity 1: mux_src File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_src.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/mux_5_regdst.v
     Info (12023): Found entity 1: mux_5_regdst File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_5_regdst.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/components/somador32.v
     Info (12023): Found entity 1: somador32 File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/somador32.v Line: 8
-Info (12127): Elaborating entity "mux_src" for the top level hierarchy
-Info (286030): Timing-Driven Synthesis is running
+Info (12021): Found 1 design units, including 1 entities, in source file modulos/mips_top_level.v
+    Info (12023): Found entity 1: mips_top_level File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at mips_top_level.v(33): created implicit net for "pc" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 33
+Warning (10236): Verilog HDL Implicit Net warning at mips_top_level.v(74): created implicit net for "output_to_ula_2" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 74
+Info (12127): Elaborating entity "mips_top_level" for the top level hierarchy
+Info (12128): Elaborating entity "control" for hierarchy "control:mips_control" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 29
+Info (12128): Elaborating entity "i_mem" for hierarchy "i_mem:current_instruction" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 33
+Warning (10850): Verilog HDL warning at i_mem.v(20): number of words (64) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/i_mem.v Line: 20
+Warning (10030): Net "rom_mem.data_a" at i_mem.v(16) has no driver or initial value, using a default initial value '0' File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/i_mem.v Line: 16
+Warning (10030): Net "rom_mem.waddr_a" at i_mem.v(16) has no driver or initial value, using a default initial value '0' File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/i_mem.v Line: 16
+Warning (10030): Net "rom_mem.we_a" at i_mem.v(16) has no driver or initial value, using a default initial value '0' File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/i_mem.v Line: 16
+Info (12128): Elaborating entity "mux_5_regdst" for hierarchy "mux_5_regdst:imem_reg_mux" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 39
+Info (12128): Elaborating entity "mux_32" for hierarchy "mux_32:write_data__reg_mux" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 45
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:mips_regfile" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 61
+Warning (10240): Verilog HDL Always Construct warning at regfile.v(26): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/regfile.v Line: 26
+Info (12128): Elaborating entity "ula_ctrl" for hierarchy "ula_ctrl:mips_ula_control" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 65
+Info (12128): Elaborating entity "sign_extend" for hierarchy "sign_extend:mips_sign_extend" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 71
+Info (12128): Elaborating entity "ula" for hierarchy "ula:mips_ula" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 80
+Warning (10764): Verilog HDL warning at ula.v(36): converting signed shift amount to unsigned File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/ula.v Line: 36
+Info (12128): Elaborating entity "pc" for hierarchy "pc:pc_counter" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 87
+Info (12128): Elaborating entity "d_mem" for hierarchy "d_mem:mips_d_mem" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 92
+Info (12128): Elaborating entity "somador32" for hierarchy "somador32:branch" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 97
+Info (12128): Elaborating entity "jump" for hierarchy "jump:mips_jump" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 101
+Info (12128): Elaborating entity "jr_ctrl" for hierarchy "jr_ctrl:mips_jr_control" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 107
+Info (12128): Elaborating entity "PC_ctrl" for hierarchy "PC_ctrl:pc_control" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 119
+Warning (10270): Verilog HDL Case Statement warning at PC_ctrl.v(14): incomplete case statement has no default case item File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at PC_ctrl.v(14): inferring latch(es) for variable "Source", which holds its previous value in one or more paths through the always construct File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 14
+Info (10041): Inferred latch for "Source[0]" at PC_ctrl.v(14) File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 14
+Info (10041): Inferred latch for "Source[1]" at PC_ctrl.v(14) File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 14
+Info (10041): Inferred latch for "Source[2]" at PC_ctrl.v(14) File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/PC_ctrl.v Line: 14
+Info (12128): Elaborating entity "mux_32_5" for hierarchy "mux_32_5:pc_mux" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 122
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ReadData1[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ReadData1[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ReadData1[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ReadData1[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALUOp[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 16
+    Warning (12110): Net "ALUOp[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 16
+    Warning (12110): Net "ALUOp[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 16
+    Warning (12110): Net "ReadData1[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData1[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[31]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[30]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[29]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[28]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[27]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[26]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[25]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[24]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[23]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[22]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[21]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[20]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[19]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[18]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[17]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[16]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[15]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[14]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[13]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[12]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[11]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[10]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[9]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[8]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[7]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[6]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[5]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[4]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[3]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[2]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[1]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+    Warning (12110): Net "ReadData2[0]" is missing source, defaulting to GND File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 50
+Error (12014): Net "nextPC[31]", which fans out to "nextPC[31]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[31]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[30]", which fans out to "nextPC[30]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[30]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[29]", which fans out to "nextPC[29]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[29]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[28]", which fans out to "nextPC[28]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[28]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[27]", which fans out to "nextPC[27]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[27]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[26]", which fans out to "nextPC[26]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[26]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[25]", which fans out to "nextPC[25]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[25]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[24]", which fans out to "nextPC[24]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[24]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[23]", which fans out to "nextPC[23]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[23]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[22]", which fans out to "nextPC[22]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[22]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[21]", which fans out to "nextPC[21]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[21]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[20]", which fans out to "nextPC[20]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[20]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[19]", which fans out to "nextPC[19]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[19]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[18]", which fans out to "nextPC[18]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[18]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[17]", which fans out to "nextPC[17]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[17]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[16]", which fans out to "nextPC[16]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[16]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[15]", which fans out to "nextPC[15]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[15]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[14]", which fans out to "nextPC[14]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[14]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[13]", which fans out to "nextPC[13]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[13]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[12]", which fans out to "nextPC[12]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[12]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[11]", which fans out to "nextPC[11]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[11]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[10]", which fans out to "nextPC[10]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[10]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[9]", which fans out to "nextPC[9]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[9]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[8]", which fans out to "nextPC[8]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[8]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[7]", which fans out to "nextPC[7]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[7]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[6]", which fans out to "nextPC[6]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[6]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[5]", which fans out to "nextPC[5]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[5]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[4]", which fans out to "nextPC[4]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[4]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[3]", which fans out to "nextPC[3]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[3]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[2]", which fans out to "nextPC[2]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[2]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+    Error (12015): Net is fed by "Add0" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 85
+Error (12014): Net "nextPC[1]", which fans out to "nextPC[1]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "pc:pc_counter|current_pc[1]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/pc.v Line: 25
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[1]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+Error (12014): Net "nextPC[0]", which fans out to "nextPC[0]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 10
+    Error (12015): Net is fed by "pc:pc_counter|current_pc[0]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/pc.v Line: 25
+    Error (12015): Net is fed by "mux_32_5:pc_mux|Y[0]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/components/mux_32_5.v Line: 9
+Error (12014): Net "PCOp[0]", which fans out to "PC_ctrl:pc_control|PCOp[0]", cannot be assigned more than one value File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/mips_top_level.v Line: 15
+    Error (12015): Net is fed by "control:mips_control|isSigned" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/control.v Line: 22
+    Error (12015): Net is fed by "jr_ctrl:mips_jr_control|PCOp[0]" File: C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/modulos/control/jr_ctrl.v Line: 14
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (144001): Generated suppressed messages file C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/output_files/MIPS-Verilog.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 129 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 65 input pins
-    Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 32 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4811 megabytes
-    Info: Processing ended: Sun Feb 18 16:18:42 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:22
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 99 errors, 341 warnings
+    Error: Peak virtual memory: 4769 megabytes
+    Error: Processing ended: Sun Feb 18 23:26:45 2024
+    Error: Elapsed time: 00:00:10
+    Error: Total CPU time (on all processors): 00:00:26
 
 
 +------------------------------------------+

@@ -18,11 +18,11 @@ module regfile(clk, rst, reg_write, read_addr1, read_addr2, write_addr, write_d,
 	// Contador para o for
 	integer i;
 	
-	//Assincrono (nao depende do clk)
+	// Leitura Assincrona (nao depende do clk)
 	assign read_d1 = registradores[read_addr1];
 	assign read_d2 = registradores[read_addr2];
 	
-	//Sincrono (opera na subida do clk, ou na subida do reset)
+	// Escrita Sincrona (opera na subida do clk, ou na subida do reset)
 	always @ (posedge clk or posedge rst) begin
 		// Condicao para o reset
 		if (rst) begin
@@ -34,9 +34,9 @@ module regfile(clk, rst, reg_write, read_addr1, read_addr2, write_addr, write_d,
 		// Caso nao seja executado o reset
 		else begin
 			// Escrita feita na subida do clk
-			if(reg_write == 1'b1) begin
+			if(reg_write == 1'b1 && write_addr != 5'b00000) begin
 				registradores[write_addr] <= write_d;
-			end
+			end 
 		end
 	end
 	

@@ -13,7 +13,7 @@ module ula_ctrl(AluOp, func, op);
 
    always @(*) begin
 		case (AluOp)
-			4'b0000: op <= 4'b0010; //LW, SW => Utiliza ADD
+			4'b0000: op <= 4'b0010; //ADDI, LW, SW => Utiliza ADD
          4'b0001: op <= 4'b0110; //Branch => Utiliza SUB
          4'b0010: //Instruções do tipo R
 				case (func) // Mandar o codigo certo para a ULA com base no func

@@ -38,6 +38,7 @@ module ula(A, B, Op, shamt, result, zero);
 		endcase
 	end
 
+	// Se o SUB for 0, o flag = 0 sera passado para verificar Branch
 	assign zero = (result == 0) ? 1'b1 : 1'b0;
 	
 endmodule

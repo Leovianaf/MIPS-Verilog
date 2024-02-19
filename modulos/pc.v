@@ -5,12 +5,12 @@
 // Beatriz Pereira, Leonardo Viana, Paloma Raissa, Ricardo Zaidan
 // -----------------------------
 
-module pc(nextPC, pc, clock);
+module pc(nextPC, current_pc, clock);
 
 	// Declaração de entradas e saída
 	input clock;
 	input wire [31:0] nextPC;
-	output reg [31:0] pc;
+	output reg [31:0] current_pc;
 	
 	// Declaração de flag
 	reg reset;
@@ -18,15 +18,15 @@ module pc(nextPC, pc, clock);
 	// Inicializando reset = 0 e pc = 0
 	initial begin
 		reset = 0;
-		pc = 32'b0;
+		current_pc = 32'b0;
 	end
 
 	// Atribuição síncrona. Se reset == 1, pc recebe o valor de nextPC. Se reset == 0, PC é zerado
 	always @(posedge clock) begin
 		if(reset) begin
-			pc = nextPC;
+			current_pc = nextPC;
 		end else begin
-			pc = 32'b0;
+			current_pc = 32'b0;
 			reset = 1;
 		end
 	end

@@ -1,5 +1,5 @@
 Assembler report for MIPS-Verilog
-Mon Feb 19 13:23:42 2024
+Mon Feb 19 18:11:51 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Feb 19 13:23:42 2024 ;
+; Assembler Status      ; Successful - Mon Feb 19 18:11:51 2024 ;
 ; Revision Name         ; MIPS-Verilog                          ;
 ; Top-level Entity Name ; mips_top_level                        ;
 ; Family                ; Cyclone V                             ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+--------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                              ;
 +----------------+--------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00ED09AC                                                                           ;
-; Checksum       ; 0x00ED09AC                                                                           ;
+; JTAG usercode  ; 0x016136C7                                                                           ;
+; Checksum       ; 0x016136C7                                                                           ;
 +----------------+--------------------------------------------------------------------------------------+
 
 
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Feb 19 13:23:32 2024
+    Info: Processing started: Mon Feb 19 18:11:41 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off MIPS-Verilog -c MIPS-Verilog
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4829 megabytes
-    Info: Processing ended: Mon Feb 19 13:23:42 2024
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Mon Feb 19 18:11:51 2024
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Total CPU time (on all processors): 00:00:09
 
 

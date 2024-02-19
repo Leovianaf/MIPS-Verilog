@@ -32,13 +32,14 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 	// Memoria de instrucao
 	wire [31:0] instruction;
 	wire [5:0] opcode = instruction[31:26];
+	wire [4:0] rs = instruction[25:21];
 	wire [4:0] rt = instruction[20:16];
 	wire [4:0] rd = instruction[15:11];
 	wire [4:0] shamt = instruction[10:6];
 	wire [5:0] func = instruction[5:0];
 	wire [15:0] imm = instruction[15:0];
 	wire [25:0] address = instruction[25:0];
-	i_mem current_instruction(pc, instruction);
+	i_mem current_instruction(current_pc, instruction);
 	
 	// MUX RegDst(i_mem e regfile)
 	// 00 => RT (instrucao tipo I)
@@ -60,15 +61,15 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 	// instruction [20:16] = rt
 	wire [31:0] ReadData1, ReadData2;
 	regfile mips_regfile(
-		instruction[25:21], 
-		instruction[20:16], 
-		ReadData1,
-		ReadData2, 
-		clock, 
+		clock,
+		reset,
+		RegWrite,
+		rs, 
+		rt,  
 		imem_to_write_addr, 
 		write_data_reg, 
-		RegWrite, 
-		reset
+		ReadData1,
+		ReadData2
 	);
 
 	// ULA control
@@ -84,7 +85,7 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 	mux_32 regfile_ula_mux(ReadData2, sign_extend_to_mux, ALUSrc, output_to_ula_2);
 	
 	// ULA
-	wire [31:0] mux_regfile_to_ula_2;
+	wire [31:0] output_to_ula_2;
 	wire [3:0] OP;
 	wire ula_zero_flag;
 	ula mips_ula(ReadData1, output_to_ula_2, OP, shamt, ula_result, ula_zero_flag);
@@ -98,9 +99,11 @@ module mips_top_level(clock, reset, nextPC, ula_result, data_mem);
 	wire [31:0] current_pc, pc_plus;
 	
 	pc mips_pc_counter(nextPC, current_pc, clock);
-	
+
+	// Implementacao para proxima instrucao
 	pc_plus mips_pc_plus(current_pc, pc_plus);
 	
+	// Define se a proxima instrucao sera jump, branch ou pc + 4
 	proxPC mips_prox_pc(pc_plus, address, Jump, Branch, BranchNe,  ula_zero_flag, sign_extend_to_mux, nextPC);
 	
 endmodule

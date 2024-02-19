@@ -9,31 +9,77 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim
-vmux_32_4
-Z1 !s110 1708272079
+vmips_top_level
+Z1 !s110 1708374086
 !i10b 1
-!s100 7P15BBEUTA6IkTD^S?BTD0
+!s100 Rb8V4M1`SJ?[L<?fbHilH0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IF32EX0:6?dME9O8[c;=;12
+IUCA__`U[7@EC5O9i0fgL@0
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1708272078
+w1708374084
 Z4 8MIPS-Verilog.vo
 Z5 FMIPS-Verilog.vo
-!i122 2
-L0 32 3128
+!i122 30
+L0 32 124262
 Z6 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z7 !s108 1708272079.000000
-Z8 !s107 MIPS-Verilog.vo|
-Z9 !s90 -work|work|MIPS-Verilog.vo|
+!s108 1708374085.000000
+Z7 !s107 MIPS-Verilog.vo|
+Z8 !s90 -work|work|MIPS-Verilog.vo|
 !i113 1
-Z10 o-work work
-Z11 tCvgOpt 0
-vmux_32_4_vlg_vec_tst
+Z9 o-work work
+Z10 tCvgOpt 0
+vmips_top_level_vlg_vec_tst
 R1
+!i10b 1
+!s100 aBgYUcD6jX39h6J_afd3d3
+R2
+I`3:?:4alMP3FPnS@IbF452
+R3
+R0
+w1708374083
+Z11 8Waveform.vwf.vt
+Z12 FWaveform.vwf.vt
+!i122 31
+L0 30 38
+R6
+r1
+!s85 0
+31
+!s108 1708374086.000000
+Z13 !s107 Waveform.vwf.vt|
+Z14 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R9
+R10
+vmux_32_4
+Z15 !s110 1708272079
+!i10b 1
+!s100 7P15BBEUTA6IkTD^S?BTD0
+R2
+IF32EX0:6?dME9O8[c;=;12
+R3
+R0
+w1708272078
+R4
+R5
+!i122 2
+L0 32 3128
+R6
+r1
+!s85 0
+31
+Z16 !s108 1708272079.000000
+R7
+R8
+!i113 1
+R9
+R10
+vmux_32_4_vlg_vec_tst
+R15
 !i10b 1
 !s100 nn0Ac>J>@SHdBZhQQk8YR3
 R2
@@ -41,20 +87,20 @@ IQZiNL=6TiKHZfbgV_iMRW3
 R3
 R0
 w1708272077
-Z12 8Waveform.vwf.vt
-Z13 FWaveform.vwf.vt
+R11
+R12
 !i122 3
 L0 30 680
 R6
 r1
 !s85 0
 31
-R7
-Z14 !s107 Waveform.vwf.vt|
-Z15 !s90 -work|work|Waveform.vwf.vt|
+R16
+R13
+R14
 !i113 1
+R9
 R10
-R11
 vmux_5_regdst
 !s110 1708273624
 !i10b 1
@@ -72,12 +118,12 @@ R6
 r1
 !s85 0
 31
-Z16 !s108 1708273624.000000
+Z17 !s108 1708273624.000000
+R7
 R8
-R9
 !i113 1
+R9
 R10
-R11
 vmux_5_regdst_vlg_vec_tst
 !s110 1708273625
 !i10b 1
@@ -87,22 +133,22 @@ IdOaSYa]lCE9KWG09?@F950
 R3
 R0
 w1708273622
+R11
 R12
-R13
 !i122 17
 L0 30 80
 R6
 r1
 !s85 0
 31
-R16
+R17
+R13
 R14
-R15
 !i113 1
+R9
 R10
-R11
 vsomador32
-Z17 !s110 1708283852
+Z18 !s110 1708283852
 !i10b 1
 !s100 @=FG?MUiO>PGAPF<aAA=B3
 R2
@@ -118,14 +164,14 @@ R6
 r1
 !s85 0
 31
-Z18 !s108 1708283852.000000
+Z19 !s108 1708283852.000000
+R7
 R8
-R9
 !i113 1
+R9
 R10
-R11
 vsomador32_vlg_vec_tst
-R17
+R18
 !i10b 1
 !s100 WghjJ5I2U376n:nbiG0=F3
 R2
@@ -133,17 +179,17 @@ IINKVHLX5k9T<elYkfOldR1
 R3
 R0
 w1708283850
+R11
 R12
-R13
 !i122 19
 L0 30 340
 R6
 r1
 !s85 0
 31
-R18
+R19
+R13
 R14
-R15
 !i113 1
+R9
 R10
-R11

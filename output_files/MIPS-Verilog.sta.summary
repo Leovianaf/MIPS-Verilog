@@ -2,52 +2,100 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'pc:mips_pc_counter|current_pc[0]'
+Slack : -34.541
+TNS   : -64462.742
+
 Type  : Slow 1100mV 85C Model Setup 'clock'
-Slack : -2.221
-TNS   : -55.387
+Slack : -23.327
+TNS   : -22330.795
 
 Type  : Slow 1100mV 85C Model Hold 'clock'
-Slack : 0.511
+Slack : 0.037
 TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'pc:mips_pc_counter|current_pc[0]'
+Slack : 0.790
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'pc:mips_pc_counter|current_pc[0]'
+Slack : -14.861
+TNS   : -233236.614
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
 Slack : -0.724
-TNS   : -36.543
+TNS   : -1141.679
+
+Type  : Slow 1100mV 0C Model Setup 'pc:mips_pc_counter|current_pc[0]'
+Slack : -33.978
+TNS   : -63342.007
 
 Type  : Slow 1100mV 0C Model Setup 'clock'
-Slack : -2.463
-TNS   : -59.641
+Slack : -23.094
+TNS   : -22077.031
+
+Type  : Slow 1100mV 0C Model Hold 'pc:mips_pc_counter|current_pc[0]'
+Slack : -0.518
+TNS   : -4.478
 
 Type  : Slow 1100mV 0C Model Hold 'clock'
-Slack : 0.526
-TNS   : 0.000
+Slack : -0.103
+TNS   : -0.110
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'pc:mips_pc_counter|current_pc[0]'
+Slack : -15.143
+TNS   : -235048.367
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
 Slack : -0.724
-TNS   : -36.648
+TNS   : -1140.530
+
+Type  : Fast 1100mV 85C Model Setup 'pc:mips_pc_counter|current_pc[0]'
+Slack : -18.284
+TNS   : -33877.989
 
 Type  : Fast 1100mV 85C Model Setup 'clock'
-Slack : -0.288
-TNS   : -3.078
+Slack : -11.167
+TNS   : -10601.697
 
 Type  : Fast 1100mV 85C Model Hold 'clock'
-Slack : 0.198
+Slack : 0.253
 TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'pc:mips_pc_counter|current_pc[0]'
+Slack : 0.327
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'pc:mips_pc_counter|current_pc[0]'
+Slack : -7.065
+TNS   : -102078.534
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
-Slack : -0.086
-TNS   : -2.799
+Slack : -0.093
+TNS   : -86.766
+
+Type  : Fast 1100mV 0C Model Setup 'pc:mips_pc_counter|current_pc[0]'
+Slack : -15.974
+TNS   : -29783.351
 
 Type  : Fast 1100mV 0C Model Setup 'clock'
-Slack : -0.260
-TNS   : -2.592
+Slack : -9.712
+TNS   : -9240.190
 
 Type  : Fast 1100mV 0C Model Hold 'clock'
-Slack : 0.187
+Slack : 0.144
 TNS   : 0.000
 
+Type  : Fast 1100mV 0C Model Hold 'pc:mips_pc_counter|current_pc[0]'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'pc:mips_pc_counter|current_pc[0]'
+Slack : -6.170
+TNS   : -89653.468
+
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
-Slack : -0.088
-TNS   : -2.862
+Slack : -0.092
+TNS   : -87.371
 
 ------------------------------------------------------------

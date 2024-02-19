@@ -132,7 +132,267 @@
 					"strict" : false
 				},
 				{
+					"name" : "ula_result[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[15]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[16]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[17]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[18]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[19]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[20]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[21]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[22]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[23]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[24]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[25]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[26]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[27]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[28]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[29]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[30]",
+					"strict" : false
+				},
+				{
+					"name" : "ula_result[31]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[2]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[3]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[4]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[5]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[6]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[7]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[8]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[9]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[10]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[11]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[12]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[13]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[14]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[15]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[16]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[17]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[18]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[19]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[20]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[21]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[22]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[23]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[24]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[25]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[26]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[27]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[28]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[29]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[30]",
+					"strict" : false
+				},
+				{
+					"name" : "data_mem[31]",
+					"strict" : false
+				},
+				{
 					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
 					"strict" : false
 				}
 			]

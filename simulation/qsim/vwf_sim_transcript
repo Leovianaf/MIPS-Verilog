@@ -26,11 +26,17 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sun Feb 18 16:17:29 2024
+    Info: Processing started: Mon Feb 19 17:21:22 2024
 Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off MIPS-Verilog -c MIPS-Verilog --vector_source=C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/Waveform.vwf --testbench_file=C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim/Waveform.vwf.vt
+Info (119006): Selected device 5CGXFC7C7F23C8 for design "MIPS-Verilog"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
-ile when writing test bench files
+or simulation
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 100 warnings
+    Info: Peak virtual memory: 4726 megabytes
+    Info: Processing ended: Mon Feb 19 17:21:23 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
 
@@ -57,13 +63,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sun Feb 18 16:17:30 2024
+    Info: Processing started: Mon Feb 19 17:21:23 2024
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim/ MIPS-Verilog -c MIPS-Verilog
+Info (119006): Selected device 5CGXFC7C7F23C8 for design "MIPS-Verilog"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file MIPS-Verilog.vo in folder "C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4727 megabytes
-    Info: Processing ended: Sun Feb 18 16:17:31 2024
+    Info: Peak virtual memory: 4736 megabytes
+    Info: Processing ended: Mon Feb 19 17:21:24 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
@@ -88,37 +95,46 @@ Reading pref.tcl
 # ** Warning: (vlib-34) Library already exists at "work".
 
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:17:32 on Feb 18,2024
+# Start time: 17:21:25 on Feb 19,2024
 # vlog -work work MIPS-Verilog.vo 
-# -- Compiling module somador32
+# -- Compiling module mips_top_level
+
 # 
 # Top level modules:
-# 	somador32
-# End time: 16:17:32 on Feb 18,2024, Elapsed time: 0:00:00
+# 	mips_top_level
+# End time: 17:21:26 on Feb 19,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:17:32 on Feb 18,2024
+# Start time: 17:21:26 on Feb 19,2024
 # vlog -work work Waveform.vwf.vt 
-# -- Compiling module somador32_vlg_vec_tst
+
+# -- Compiling module mips_top_level_vlg_vec_tst
 # 
 # Top level modules:
-# 	somador32_vlg_vec_tst
-# End time: 16:17:32 on Feb 18,2024, Elapsed time: 0:00:00
+# 	mips_top_level_vlg_vec_tst
+# End time: 17:21:26 on Feb 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
-# vsim -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.somador32_vlg_vec_tst 
-# Start time: 16:17:32 on Feb 18,2024
-# Loading work.somador32_vlg_vec_tst
-# Loading work.somador32
+# vsim -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.mips_top_level_vlg_vec_tst 
+# Start time: 17:21:26 on Feb 19,2024
+# Loading work.mips_top_level_vlg_vec_tst
+# Loading work.mips_top_level
 # Loading cyclonev_ver.cyclonev_io_obuf
 # Loading cyclonev_ver.cyclonev_io_ibuf
 # Loading cyclonev_ver.cyclonev_lcell_comb
+# Loading altera_ver.dffeas
+# Loading altera_ver.PRIM_GDFF_LOW
+# ** Warning: Design size of 33817 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
 # after#25
-# ** Note: $finish    : Waveform.vwf.vt(47)
-#    Time: 16 us  Iteration: 0  Instance: /somador32_vlg_vec_tst
-# End time: 16:17:33 on Feb 18,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
+
+# Simulation time: 0 ps
+
+# ** Note: $finish    : Waveform.vwf.vt(51)
+#    Time: 32 us  Iteration: 0  Instance: /mips_top_level_vlg_vec_tst
+# End time: 17:21:32 on Feb 19,2024, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 1
 
 Completed successfully. 
 
@@ -130,7 +146,7 @@ Reading C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim/MIPS-Veril
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim/MIPS-Verilog_20240218161733.sim.vwf
+Writing the resulting VWF to C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim/MIPS-Verilog_20240219172132.sim.vwf
 
 Finished VCD to VWF conversion.
 

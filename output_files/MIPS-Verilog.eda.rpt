@@ -1,5 +1,5 @@
 EDA Netlist Writer report for MIPS-Verilog
-Sun Feb 18 16:17:31 2024
+Mon Feb 19 17:21:24 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,9 +37,9 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sun Feb 18 16:17:31 2024 ;
+; EDA Netlist Writer Status ; Successful - Mon Feb 19 17:21:24 2024 ;
 ; Revision Name             ; MIPS-Verilog                          ;
-; Top-level Entity Name     ; somador32                             ;
+; Top-level Entity Name     ; mips_top_level                        ;
 ; Family                    ; Cyclone V                             ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -95,13 +95,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sun Feb 18 16:17:30 2024
+    Info: Processing started: Mon Feb 19 17:21:23 2024
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim/ MIPS-Verilog -c MIPS-Verilog
+Info (119006): Selected device 5CGXFC7C7F23C8 for design "MIPS-Verilog"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file MIPS-Verilog.vo in folder "C:/Users/lsvfi/Documents/Verilog/MIPS-Verilog/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4727 megabytes
-    Info: Processing ended: Sun Feb 18 16:17:31 2024
+    Info: Peak virtual memory: 4736 megabytes
+    Info: Processing ended: Mon Feb 19 17:21:24 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

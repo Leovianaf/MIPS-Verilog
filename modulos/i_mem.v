@@ -20,8 +20,7 @@ module i_mem (address, i_out);
         $readmemb("tests/instructions.list", rom_mem);
     end
 
-	 // O endereço da instrução sera obtido a partir dos 5 ultimos bits de address, depois
-	 // seleciona os 8 bits menos significativos de 'address'
+	// Endereço é como o índice do vetor, a partir dele a instrução é obtida
     assign i_out = rom_mem[address];
     
 endmodule
